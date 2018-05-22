@@ -1,5 +1,6 @@
 # lunar-lander
 Lunar Lander v. 1.0
+written for Python 3.6
 
 LICENSE and CREDITS:
 
