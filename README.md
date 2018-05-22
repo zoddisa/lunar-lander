@@ -4,7 +4,7 @@ Lunar Lander v. 1.0
 LICENSE and CREDITS:
 
 lunar-lander.pyw is open-source software released under the terms of
-the GPL (http://www.gnu.org/licenses/gpl.html).
+the GPL.
 
 graphics.py is written by John Zelle, a simple graphics library
 written for use with his book "Python Programming: An Introduction to
