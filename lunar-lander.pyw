@@ -1,4 +1,5 @@
 # Final Project for CompSci Intro to Programming
+# Written for Python v3.6
 #   by zoddisa
 
 # Moon is stationary at position [0,0]
@@ -6,7 +7,6 @@
 
 from graphics import *
 from math import sqrt, acos, asin, log, e, pi, sin, cos, hypot, copysign
-from decimal import *
 from time import sleep
 
 class LEM:
@@ -548,63 +548,6 @@ class Trajectory:
         self.landerMap.setOutline('yellow')
         self.landerMap.draw(self.win)
 
-class Prograde:
-    """Displays an arrow to indicate the prograde vector (direction you're travelling)."""
-
-    def __init__(self,win,hvel,vvel):
-        self.hvel = hvel
-        self.vvel = vvel
-        self.win = win
-
-        alpha = acos(self.hvel/hypot(self.hvel,self.vvel))
-        r = 4
-        px = r * cos(-alpha) + 12.5
-        py = r * sin(-alpha) + 12.5
-        p1 = Point(px,py)
-
-        r = 1
-        px = r * cos(-alpha+pi*(1/32)) + 12.5
-        py = r * sin(-alpha+pi*(1/32)) + 12.5
-        p2 = Point(px,py)
-
-        px = r * cos(-alpha-pi*(1/32)) + 12.5
-        py = r * sin(-alpha-pi*(1/32)) + 12.5
-        p3 = Point(px,py)
-
-        self.vector = Polygon(p1,p2,p3)
-        self.vector.setFill = 'white'
-        self.vector.setOutline = 'white'
-        self.vector.draw(self.win)
-
-    def refresh(self,hvel,vvel):
-        """Updates prograde vector appropriately."""
-        self.hvel = hvel
-        self.vvel = vvel
-
-        alpha = acos(self.hvel/hypot(self.hvel,self.vvel))
-        print(alpha)
-        r = 7
-        px = r * cos(-alpha) + 12.5
-        py = r * sin(-alpha) + 12.5
-        p1 = Point(px,py)
-
-        r = 1
-        px = r * cos(-alpha+pi*(1/32)) + 12.5
-        py = r * sin(-alpha+pi*(1/32)) + 12.5
-        p2 = Point(px,py)
-
-        px = r * cos(-alpha-pi*(1/32)) + 12.5
-        py = r * sin(-alpha-pi*(1/32)) + 12.5
-        p3 = Point(px,py)
-
-
-        self.vector.undraw()
-        self.vector = Polygon(p1,p2,p3)
-        self.vector.setFill = 'white'
-        self.vector.setOutline = 'white'
-        self.vector.draw(self.win)
-#        self.vector = vector
-
 def collisionCheck(numAlt, numVel):
     if numAlt <= 2.5:
         if numVel <= 3.0:
@@ -733,9 +676,6 @@ def main():
 
     #initializes lander, landscape, prograde vector, and throttle graphics
     landerFX = LanderGraphics(win, (pi/2), initAltitude, initXVel, 0)
-
-    #initializes prograde arrow
-    #arrow = Prograde(win, initXVel, 0)
 
     #initializes trajectory in mapview window
     trajectory = Trajectory(mapV, 0, initYPos, initXVel, 0, gravConst, radiusMoon, 1)
