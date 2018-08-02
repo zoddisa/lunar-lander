@@ -1,6 +1,6 @@
 # Final Project for CompSci Intro to Programming
 # Written for Python v3.6
-#   by zoddisa
+#   by Z. Henderson
 
 # Moon is stationary at position [0,0]
 # Display:  Main window is oriented such that 'down' is towards [0,0].
